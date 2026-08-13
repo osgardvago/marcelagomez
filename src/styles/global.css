@@ -1,0 +1,28 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Sacramento&family=WindSong:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-LeagueGothic: "League Gothic", sans-serif;
+  --font-Sacramento: "Sacramento", cursive;
+  --font-WindSong: "WindSong", cursive;
+  --font-Elms: "Elms Sans", sans-serif;
+  --color-midnight: #301c33;
+}
+
+h1 {
+  color: #301c33;
+}
+p{
+
+}
+ul{
+  font-family: "Elms Sans", sans-serif;
+  word-spacing: -4px;
+}
+
+

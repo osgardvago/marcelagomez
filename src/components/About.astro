@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import Perfil from '../assets/profile.webp';
+---
+
+
+<div class="font-Sacramento h-auto mb-10 w-full flex justify-center text-midnight/80 text-5xl md:text-7xl"><span class="text-5xl text-midnight/30 mt-3 mr-3">❁</span>Hola, soy Marcela Gomez<span class="text-5xl text-midnight/30 mt-3 ml-3">❁</span></div>
+<div class="grid grid-cols-1 md:grid-cols-3 w-full h-auto bg-white/30 shadow-lg p-5 mb-10 text-midnight font-Elms text-xl word-spacing: -4px;">
+
+    <div class="col-span-1 col-start-2  mb-5">
+        <Image src={Perfil} alt="Foto de perfil profesional" class="drop-shadow-lg" />
+    </div>
+    <p class="col-span-3 px-2 md:px-25 mb-5">
+        Detrás de cada gran proyecto hay números que necesitan orden, claridad y una estrategia sólida. <strong>Como contadora con 15 años de experiencia,</strong> me dedico a transformar la complejidad de los impuestos y las finanzas en un camino sencillo y seguro para micro, pequeñas y medianas empresas.
+        Sé perfectamente el esfuerzo, la pasión y el tiempo que inviertes en tu negocio. Por eso, mi objetivo no es solo llevar tus cuentas, sino darte la paz mental que necesitas para enfocarte en lo que mejor sabes hacer.
+    </p>
+    <div class="h-100 md:h-full col-span-3 md:col-span-2 bg-cover bg-[url(../assets/accounting2.webp)] flex justify-center  text-white ">
+    </div>
+    <div class="col-span-3 md:col-span-1 md:col-start-3 p-5 md:p-10  bg-white/30 rounded-lg shadow-lg ">
+        <h1 class="font-bold text-xl flex justify-center mb-5">¿Qué puedes esperar de mí?</h1>
+        <ul class="mb-5 ">
+            <li><strong>Cercanía y empatía</strong> <p>Hablamos el mismo idioma. Olvídate de los tecnicismos aburridos; te explicaré tus finanzas de forma clara y transparente.</p></li>
+            <li><strong>Eficacia y orden</strong><p>Respuestas rápidas, procesos optimizados y la tranquilidad de que tu negocio cumple al 100% con todas sus obligaciones fiscales.</p></li>
+            <li><strong>Compromiso</strong><p>No soy solo una proveedora externa; me convierto en una extensión de tu equipo, cuidando la salud financiera de tu empresa como si fuera la mía.</p></li>
+        </ul>
+    </div>
+</div>
+<div class="mb-10 border-b-3 border-white/10"></div>

@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import Imagen1 from "../assets/logos/logo1.webp"
+import Imagen2 from "../assets/logos/logo2.webp"
+import Imagen3 from "../assets/logos/logo3.webp"
+import Imagen4 from "../assets/logos/logo4.webp"
+import Imagen5 from "../assets/logos/logo5.webp"
+---
+
+
+<div class="relative w-full h-1/8 md:h-1/3 bg-midnight/30 overflow-hidden shadow-lg pt-5 mb-10">
+  <p class="text-2xl text-white font-Elms flex justify-center">Negocios que confian en mi</p>
+  <!-- Contenedor de las diapositivas -->
+  <div id="fiveImageCarousel" class="flex transition-transform ease-in-out duration-3000 ml-10 pt-2 ">
+      <!-- Logo 1 -->
+        <div class="slide min-w-1/5">
+          <Image  src={Imagen1} alt="logo cliente" class=" " />
+        </div>
+        <!-- Logo 2 -->
+        <div class=" slide min-w-1/5">
+          <Image src={Imagen2} alt="logo cliente" class="" />
+        </div>
+        <!-- Logo 3 -->
+        <div class=" slide min-w-1/5">
+          <Image src={Imagen3} alt="logo cliente" class="" />
+        </div>
+        <!-- Logo 4 -->
+        <div class="slide min-w-1/5">
+          <Image src={Imagen4} alt="logo cliente" class="" />
+        </div>
+        <!-- Logo 5 -->
+        <div class=" slide min-w-1/5">
+          <Image src={Imagen5} alt="logo cliente" class="" />
+        </div>
+  </div>
+
+</div>
+<div class="mb-10 border-b-3 border-white/10"></div>
+
+<script>
+  const fiveImageCarousel = document.getElementById('fiveImageCarousel');
+  const originalSlides = Array.from(fiveImageCarousel.children);
+  const totalSlides = originalSlides.length;
+
+  // 1. Número de diapositivas visibles al mismo tiempo
+  const visibleSlides = 5;
+
+  // 2. Clonar las primeras 5 diapositivas y añadirlas al final
+  for (let i = 0; i < visibleSlides; i++) {
+    const clone = originalSlides[i].cloneNode(true);
+    fiveImageCarousel.appendChild(clone);
+  }
+
+  let index = 0;
+
+  function movefiveImageCarousel() {
+    index++;
+
+    fiveImageCarousel.classList.remove('transition-none');
+    // 3. Cada paso avanza un 20% (1/5 del ancho total del contenedor)
+    fiveImageCarousel.style.transform = `translateX(-${index * 20}%)`;
+
+    // 4. El reinicio oculto ocurre cuando pasamos todas las diapositivas originales
+    if (index === totalSlides) {
+      setTimeout(() => {
+        fiveImageCarousel.classList.add('transition-none');
+        index = 0; // Regresa al inicio real
+        fiveImageCarousel.style.transform = `translateX(0%)`;
+      }, 3000); // Coincide con duration-500 de Tailwind
+    }
+  }
+
+  window.addEventListener("load", function () {
+    setInterval(movefiveImageCarousel, 3000);
+  });
+</script>
+
+
+
+
+

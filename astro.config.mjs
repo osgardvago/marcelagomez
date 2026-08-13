@@ -2,8 +2,23 @@
 import { defineConfig } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare()
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    },
+
+    imageService: "cloudflare"
+  }),
+
+  vite: {
+    plugins: [tailwindcss()]
+  },
+  optimizeDeps: {
+      // Exclude the cache directory or specific packages causing issues
+      exclude: ['node_modules/.cache', '@tailwindcss/vite'],
+    },
 });

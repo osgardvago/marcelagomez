@@ -1,0 +1,78 @@
+---
+
+---
+
+
+<div class="relative w-full h-2/3 max-w-lg md:max-w-3xl mx-auto bg-midnight/30 overflow-hidden rounded-xl shadow-lg mb-10 pt-10 font-Elms">
+  <!-- Contenedor de las diapositivas -->
+  <div id="reviewsCarousel" class="flex transition-transform duration-500 ease-out h-64">
+    <!-- Diapositiva 1 -->
+    <div class=" min-w-full min-h-full inline-block flex items-center justify-center text-white text-2xl p-15">
+      <p class="italic mb-5">"Delegar mis impuestos con ella fue la mejor decisión para mi negocio. Es súper clara, organizada y por fin entiendo mis declaraciones sin dolor de cabeza."</p>
+      <p class="text-lg">Ana Martínez — Diseñadora UX Freelance</p>
+      <span class="text-2xl text-yellow flex justify-center">★★★★★</span>
+    </div>
+    <!-- Diapositiva 2 -->
+    <div class=" min-w-full min-h-full inline-block flex items-center justify-center text-white text-2xl p-15">
+      <p class="italic mb-5">"Excelente servicio y atención al detalle. Nos ayudó a regularizar la contabilidad de la empresa en tiempo récord y a optimizar nuestras deducciones legalmente."</p>
+      <p class="text-lg">Carlos Mendoza — Co-fundador de Startup Tec</p>
+      <p class="text-2xl text-yellow flex justify-center mt-5">★★★★★</p>
+    </div>
+    <!-- Diapositiva 3 -->
+    <div class=" min-w-full min-h-full inline-block flex items-center justify-center text-white text-2xl p-15">
+      <p class="italic mb-5">"Como freelance, el SAT siempre me daba pánico. Gracias a su asesoría mensual, vivo con la total tranquilidad de que todo está al día y en orden."</p>
+      <p class="text-lg">Laura Torres — Consultora de Negocios</p>
+      <p class="text-2xl text-yellow flex justify-center mt-5">★★★★★</p>
+    </div>
+
+    <div class=" min-w-full min-h-full inline-block flex items-center justify-center text-white text-2xl p-15">
+      <p class="italic mb-5">"Resolvió todas mis dudas sobre facturación internacional de forma muy sencilla. Es una profesional de confianza que se toma el tiempo de explicarte todo."</p>
+      <p class="text-lg">David Silva — Creador de Contenido</p>
+      <p class="text-2xl text-yellow flex justify-center mt-5">★★★★★</p>
+    </div>
+
+    <div class=" min-w-full min-h-full inline-block flex items-center justify-center text-white text-2xl p-15">
+      <p class="italic mb-5">"Gracias a su gestión contable he ahorrado horas de burocracia cada mes. Ahora puedo enfocarme al 100% en hacer crecer mis ventas."</p>
+      <p class="text-lg">Sofía Ruiz — Dueña de Tienda E-commerce</p>
+      <p class="text-2xl text-yellow flex justify-center mt-5">★★★★★</p>
+    </div>
+  </div>
+
+  <!-- Botón Anterior -->
+  <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 font-bold shadow">
+    ❮
+  </button>
+
+  <!-- Botón Siguiente -->
+  <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 font-bold shadow">
+    ❯
+  </button>
+</div>
+<div class="mb-10 border-b-3 border-white/10"></div>
+
+
+<script>
+  const reviewsCarousel = document.getElementById('reviewsCarousel');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let index = 0;
+  const totalSlides = reviewsCarousel.children.length;
+
+  function updatereviewsCarousel() {
+    reviewsCarousel.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % totalSlides; // Vuelve al inicio al llegar al final
+    updatereviewsCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + totalSlides) % totalSlides; // Vuelve al final si retrocede del inicio
+    updatereviewsCarousel();
+  });
+</script>
+
+
+

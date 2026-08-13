@@ -1,3 +1,25 @@
+---
+
+import Navbar from '../components/Navbar.astro';
+import Wrapper from '../components/Wrapper.astro';
+import "../styles/global.css";
+
+// src/layouts/Layout.astro
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+	canonicalUrl?: string;
+}
+
+const {
+	title,
+	description,
+	image = '/profile.webp', // Imagen por defecto en public/
+	canonicalUrl = Astro.url.href
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +27,65 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="¿Buscas servicios contables? Llevamos tu contabilidad al día, declaraciones de impuestos y asesoría fiscal para que tu negocio crezca seguro. ¡Cotiza hoy!" />
+		<title>Marcela Gomez</title>
+		<script type="application/ld+json" is:inline>
+		{
+			"@context": "https://schema.org",
+			"@type": "AccountingService",
+			"name": "Despacho Contable Marcela Gomez",
+			"image": "https://marcelagomez.pages.dev",
+			"url": "https://marcelagomez.pages.dev",
+			"telephone": "+52XXXXXX",
+			"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "Av. Patria 123",
+			"addressLocality": "Zapopan",
+			"addressRegion": "Jalisco",
+			"postalCode": "45100",
+			"addressCountry": "MX"
+			},
+			"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 20.674,
+			"longitude": -103.387
+			},
+			"openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday"
+			],
+			"opens": "09:00",
+			"closes": "18:00"
+			},
+			"priceRange": "$$"
+		}
+		</script>
+	<!-- SEO Estándar -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- Open Graph / Facebook / WhatsApp -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+
+		<!-- X / Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url.href} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
 	</head>
-	<body>
+	<body class="bg-radial from-purple-300 to-rose-100 bg-fixed">
+		<Navbar />
 		<slot />
 	</body>
 </html>
