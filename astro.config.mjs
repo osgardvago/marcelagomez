@@ -10,8 +10,11 @@ export default defineConfig({
     platformProxy: {
       enabled: true
     },
-
-    imageService: "cloudflare"
+    imageService: {
+    build: 'compile',
+    runtime: 'cloudflare-binding'
+  }
+    // imageService: "cloudflare"
   }),
 
   vite: {
@@ -21,4 +24,6 @@ export default defineConfig({
       // Exclude the cache directory or specific packages causing issues
       exclude: ['node_modules/.cache', '@tailwindcss/vite'],
     },
+
+
 });
