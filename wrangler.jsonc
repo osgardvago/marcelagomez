@@ -12,3 +12,8 @@
 		"enabled": true
 	}
 }
+{
+  "images": {
+    "binding": "IMAGES"
+  }
+}
