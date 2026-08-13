@@ -15,7 +15,6 @@ export default defineConfig({
     build: 'compile',
     runtime: 'cloudflare-binding'
     },
-    imageService: "cloudflare"
   }),
 
   vite: {
